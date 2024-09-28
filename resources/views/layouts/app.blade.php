@@ -22,7 +22,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-underline">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('productos.index') }}">Productos</a>
+                        <a class="nav-link" href="{{ route('productos.clientes') }}">Productos</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -63,7 +63,7 @@
                 <div class="col-md-4 mb-3 mb-md-0">
                     <h5>Enlaces</h5>
                     <ul class="list-unstyled">
-                        <li><a href="{{ route('productos.index') }}" class="text-white">Productos</a></li>
+                        <li><a href="{{ route('productos.clientes') }}" class="text-white">Productos</a></li>
                         <li><a href="{{ route('productos.tennis') }}" class="text-white">Tennis</a></li>
                         <li><a href="{{ route('productos.padel') }}" class="text-white">Pádel</a></li>
                         <li><a href="{{ route('productos.accesorios') }}" class="text-white">Accesorios</a></li>
