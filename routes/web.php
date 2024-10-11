@@ -7,13 +7,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-//Route::resource('productos', ProductoController::class);
+Route::resource('productos', ProductoController::class);
 
 // Admin 
 //Route::resource('admin/productos', ProductoController::class)->middleware('auth'); 
 
 // Cliente
-Route::get('/productos', [ClienteProductoController::class, 'index'])->name('productos.clientes');
+//Route::get('/productos', [ClienteProductoController::class, 'index'])->name('productos.clientes');
 
 // Rutas temporales
 
