@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Male_Fashion Template">
-    <meta name="keywords" content="Male_Fashion, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Game Set Match!</title>
@@ -31,21 +29,13 @@
         <div class="loader"></div>
     </div>
 
-    <!-- Offcanvas Menu Begin -->
+    <!-- Offcanvas Menu Begin Mobile-->
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__option">
             <div class="offcanvas__links">
-                <a href="#">Sign in</a>
-                <a href="#">FAQs</a>
-            </div>
-            <div class="offcanvas__top__hover">
-                <span>Usd <i class="arrow_carrot-down"></i></span>
-                <ul>
-                    <li>USD</li>
-                    <li>EUR</li>
-                    <li>USD</li>
-                </ul>
+                <a href="{{ route('register') }}">Register</a>
+                <a href="{{ route('login') }}">Sign in</a>
             </div>
         </div>
         <div class="offcanvas__nav__option">
@@ -56,7 +46,7 @@
         </div>
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__text">
-            <p>Free shipping.</p>
+            <p>Game Set Match | The best prices in town!</p>
         </div>
     </div>
     <!-- Offcanvas Menu End -->
@@ -68,22 +58,14 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-7">
                         <div class="header__top__left">
-                            <p>Free shipping, 30-day  refund guarantee.</p>
+                            <p>The best prices in town!</p>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
                             <div class="header__top__links">
-                                <a href="#">Sign in</a>
-                                <a href="#">FAQs</a>
-                            </div>
-                            <div class="header__top__hover">
-                                <span>Usd <i class="arrow_carrot-down"></i></span>
-                                <ul>
-                                    <li>USD</li>
-                                    <li>EUR</li>
-                                    <li>USD</li>
-                                </ul>
+                                <a href="{{ route('register') }}">Register</a>
+                                <a href="{{ route('login') }}">Sign in</a>
                             </div>
                         </div>
                     </div>
@@ -101,18 +83,14 @@
                     <nav class="header__menu mobile-menu">
                         <ul>
                             <li class="active"><a href="{{ route('home') }}">Home</a></li>
-                            <li><a href="{{ route('productos.index') }}">Productos</a></li>
-                            <li><a href="#">Pages</a>
+                            <li><a href="{{ route('productos.index') }}">Products</a>
                                 <ul class="dropdown">
-                                    <li><a href="./about.html">About Us</a></li>
-                                    <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./shopping-cart.html">Shopping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
+                                    <li><a href="#">Tennis</a></li>
+                                    <li><a href="#">Padel</a></li>
+                                    <li><a href="#">Accessories</a></li>
                                 </ul>
                             </li>
                             <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Contacts</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -130,7 +108,7 @@
     </header>
     <!-- Header Section End -->
 
-    <!-- Hero Section Begin -->
+    <!-- Content -->
     <main class="py-4">
         @yield('content')
     </main>
@@ -144,7 +122,8 @@
                         <div class="footer__logo">
                             <a href="#"><img src="{{ asset('img/footer-logo.png') }}" alt="Footer Logo"></a>
                         </div>
-                        <p>The customer is at the heart of our unique business model, which includes design.</p>
+                        <p>The customer is at the heart of our unique business model, 
+                            which includes design, innovation, and providing top-quality tennis gear for all levels of players.</p>
                         <a href="#"><img src="{{ asset('img/payment.png') }}" alt="Payment"></a>
                     </div>
                 </div>
@@ -152,21 +131,19 @@
                     <div class="footer__widget">
                         <h6>Shopping</h6>
                         <ul>
-                            <li><a href="#">Clothing Store</a></li>
-                            <li><a href="#">Trending Shoes</a></li>
+                            <li><a href="#">Tennis</a></li>
+                            <li><a href="#">Padel</a></li>
                             <li><a href="#">Accessories</a></li>
-                            <li><a href="#">Sale</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-6">
                     <div class="footer__widget">
-                        <h6>Shopping</h6>
+                        <h6>Contact</h6>
                         <ul>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Payment Methods</a></li>
-                            <li><a href="#">Delivery</a></li>
-                            <li><a href="#">Return & Exchanges</a></li>
+                            <li><a href="#">St. Federer 73, Zapopan Jalisco</a></li>
+                            <li><a href="#">Cellphone: +123 456 7890</a></li>
+                            <li><a href="#">Email: info@gamesetmatch.com</a></li>
                         </ul>
                     </div>
                 </div>
@@ -189,8 +166,7 @@
                         <p>Copyright ©
                             <script>
                                 document.write(new Date().getFullYear());
-                            </script>2020 All rights reserved | This template is made with <i class="fa fa-heart-o"
-                                aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            </script>| Colorlib
                         </p>
                     </div>
                 </div>
