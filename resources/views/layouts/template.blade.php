@@ -34,8 +34,8 @@
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__option">
             <div class="offcanvas__links">
-                <a href="{{ route('register') }}">Register</a>
-                <a href="{{ route('login') }}">Sign in</a>
+                <a href="{{ route('register') }}">Registrarse</a>
+                <a href="{{ route('login') }}">Iniciar Sesión</a>
             </div>
         </div>
         <div class="offcanvas__nav__option">
@@ -46,7 +46,7 @@
         </div>
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__text">
-            <p>Game Set Match | The best prices in town!</p>
+            <p>Game Set Match | Los mejores precios de la ciudad!</p>
         </div>
     </div>
     <!-- Offcanvas Menu End -->
@@ -58,14 +58,14 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-7">
                         <div class="header__top__left">
-                            <p>The best prices in town!</p>
+                            <p>Los mejores precios de la ciudad!</p>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
                             <div class="header__top__links">
-                                <a href="{{ route('register') }}">Register</a>
-                                <a href="{{ route('login') }}">Sign in</a>
+                                <a href="{{ route('register') }}">Registrarse</a>
+                                <a href="{{ route('login') }}">Iniciar Sesión</a>
                             </div>
                         </div>
                     </div>
@@ -82,12 +82,12 @@
                 <div class="col-lg-6 col-md-6">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li class="active"><a href="{{ route('home') }}">Home</a></li>
-                            <li><a href="{{ route('productos.index') }}">Products</a>
+                            <li class="active"><a href="{{ route('home') }}">Inicio</a></li>
+                            <li><a href="{{ route('productos.index') }}">Productos</a>
                                 <ul class="dropdown">
                                     <li><a href="#">Tennis</a></li>
-                                    <li><a href="#">Padel</a></li>
-                                    <li><a href="#">Accessories</a></li>
+                                    <li><a href="#">Pádel</a></li>
+                                    <li><a href="#">Accesorios</a></li>
                                 </ul>
                             </li>
                             <li><a href="./blog.html">Blog</a></li>
@@ -122,38 +122,38 @@
                         <div class="footer__logo">
                             <a href="#"><img src="{{ asset('img/footer-logo.png') }}" alt="Footer Logo"></a>
                         </div>
-                        <p>The customer is at the heart of our unique business model, 
-                            which includes design, innovation, and providing top-quality tennis gear for all levels of players.</p>
+                        <p>El cliente está en el centro de nuestro modelo de negocio único, 
+                            que incluye diseño, innovación y ofrecer equipo de tenis de la más alta calidad para todos los niveles de jugadores.</p>
                         <a href="#"><img src="{{ asset('img/payment.png') }}" alt="Payment"></a>
                     </div>
                 </div>
                 <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
                     <div class="footer__widget">
-                        <h6>Shopping</h6>
+                        <h6>Comprar</h6>
                         <ul>
                             <li><a href="#">Tennis</a></li>
-                            <li><a href="#">Padel</a></li>
-                            <li><a href="#">Accessories</a></li>
+                            <li><a href="#">Pádel</a></li>
+                            <li><a href="#">Accesorios</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-6">
                     <div class="footer__widget">
-                        <h6>Contact</h6>
+                        <h6>Contacto</h6>
                         <ul>
-                            <li><a href="#">St. Federer 73, Zapopan Jalisco</a></li>
-                            <li><a href="#">Cellphone: +123 456 7890</a></li>
+                            <li><a href="#">Av. Federer 73, Zapopan Jalisco</a></li>
+                            <li><a href="#">Celular: +123 456 7890</a></li>
                             <li><a href="#">Email: info@gamesetmatch.com</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
                     <div class="footer__widget">
-                        <h6>NewLetter</h6>
+                        <h6>NewsLetter</h6>
                         <div class="footer__newslatter">
-                            <p>Be the first to know about new arrivals, look books, sales & promos!</p>
+                            <p>Sé el primero en enterarse sobre nuestras promociones y nuevos productos!</p>
                             <form action="#">
-                                <input type="text" placeholder="Your email">
+                                <input type="text" placeholder="Tu email">
                                 <button type="submit"><span class="icon_mail_alt"></span></button>
                             </form>
                         </div>
@@ -180,7 +180,7 @@
         <div class="h-100 d-flex align-items-center justify-content-center">
             <div class="search-close-switch">+</div>
             <form class="search-model-form">
-                <input type="text" id="search-input" placeholder="Search here.....">
+                <input type="text" id="search-input" placeholder="Busca aquí.....">
             </form>
         </div>
     </div>
