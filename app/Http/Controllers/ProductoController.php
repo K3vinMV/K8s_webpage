@@ -33,23 +33,26 @@ class ProductoController extends Controller
     {
         //
         $request->validate([
-            'nombre' => 'required',
-            'descripcion' => 'required',
-            'precio' => 'required|numeric',
-            'imagen' => 'nullable|image',
+            'nombre' => 'required|string|max:255|min:3',
+            'descripcion' => 'required|string|min:5',
+            'precio' => 'required|numeric|min:1',
+            'imagen' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'destacado' => 'required|boolean',
-            'stock' => 'required|integer',
+            'stock' => 'required|integer|min:1',
         ]);
-
+    
         $producto = new Producto();
         $producto->nombre = $request->nombre;
         $producto->descripcion = $request->descripcion;
         $producto->precio = $request->precio;
+
         if ($request->hasFile('imagen')) {
             $producto->imagen = $request->file('imagen')->store('imagenes', 'public');
         }
+
         $producto->destacado = $request->destacado;
         $producto->stock = $request->stock;
+
         $producto->save();
 
         return redirect()->route('productos.index')->with('success', 'Producto creado correctamente.');
@@ -80,20 +83,25 @@ class ProductoController extends Controller
     {
         //
         $request->validate([
-            'nombre' => 'required',
-            'descripcion' => 'required',
-            'precio' => 'required|numeric',
-            'imagen' => 'nullable|image',
+            'nombre' => 'required|string|max:255|min:3',
+            'descripcion' => 'required|string|min:5',
+            'precio' => 'required|numeric|min:1',
+            'imagen' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'destacado' => 'required|boolean',
-            'stock' => 'required|integer',
+            'stock' => 'required|integer|min:1',
         ]);
 
         $producto->nombre = $request->nombre;
         $producto->descripcion = $request->descripcion;
         $producto->precio = $request->precio;
+
         if ($request->hasFile('imagen')) {
+            // reemplazar la imagen anterior
+            // \Storage::delete('public/' . $producto->imagen);
+
             $producto->imagen = $request->file('imagen')->store('imagenes', 'public');
         }
+
         $producto->destacado = $request->destacado;
         $producto->stock = $request->stock;
         $producto->save();
