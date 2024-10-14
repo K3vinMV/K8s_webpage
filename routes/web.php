@@ -32,6 +32,7 @@ Route::get('/productos/accesorios', function () {
 Route::get('/contacto', function () {
     return 'Página de contacto';
 })->name('contacto');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

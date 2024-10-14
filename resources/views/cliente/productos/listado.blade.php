@@ -1,4 +1,4 @@
-@extends('layouts.app') <!-- Usa el layout general -->
+@extends('layouts.template') <!-- Usa el layout general -->
 
 @section('title', 'Listado de Productos')
 

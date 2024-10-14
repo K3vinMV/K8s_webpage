@@ -34,10 +34,29 @@
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__option">
             <div class="offcanvas__links">
-                <a href="{{ route('register') }}">Registrarse</a>
-                <a href="{{ route('login') }}">Iniciar Sesión</a>
+                @guest
+                    <!-- Si el usuario NO está autenticado -->
+                    <a href="{{ route('register') }}">Registrarse</a>
+                    <a href="{{ route('login') }}">Iniciar Sesión</a>
+                @endguest
+
+                @auth
+                    <!-- Si el usuario está autenticado -->
+                    <a href="{{ route('profile.show') }}">Mi Cuenta</a>
+                    <a href="{{ route('logout') }}" 
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    Cerrar Sesión
+                    </a>
+
+                    <!-- Formulario para cerrar sesión -->
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit">Cerrar Sesión</button>
+                    </form>
+                @endauth
             </div>
         </div>
+
         <div class="offcanvas__nav__option">
             <a href="#" class="search-switch"><img src="{{ asset('img/icon/search.png') }}" alt=""></a>
             <a href="#"><img src="{{ asset('img/icon/heart.png') }}" alt=""></a>

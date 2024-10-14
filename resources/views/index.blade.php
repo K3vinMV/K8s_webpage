@@ -8,7 +8,7 @@
                 <div class="col-lg-12">
                     <div class="section-title">
                         <h2>¡Bienvenido a <strong>Game Set Match!</h2>
-                        <span>Tu tienda online especializada en todo lo necesario para el tenis y el pádel.</span>
+                        <span>Tu tienda online especializada en todo lo necesario para el tennis y el pádel.</span>
                     </div>
                 </div>
             </div>
