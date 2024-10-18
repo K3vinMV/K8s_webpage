@@ -83,8 +83,25 @@
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
                             <div class="header__top__links">
-                                <a href="{{ route('register') }}">Registrarse</a>
-                                <a href="{{ route('login') }}">Iniciar Sesión</a>
+                                @guest
+                                    <!-- Si el usuario NO está autenticado -->
+                                    <a href="{{ route('register') }}">Registrarse</a>
+                                    <a href="{{ route('login') }}">Iniciar Sesión</a>
+                                @endguest
+
+                                @auth
+                                    <!-- Si el usuario está autenticado -->
+                                    <a href="{{ route('profile.show') }}">Mi Cuenta</a>
+                                    <a href="{{ route('logout') }}" 
+                                    onclick="event.preventDefault(); document.getElementById('logout-form-header').submit();">
+                                    Cerrar Sesión
+                                    </a>
+
+                                    <!-- Formulario para cerrar sesión en el header -->
+                                    <form id="logout-form-header" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                @endauth
                             </div>
                         </div>
                     </div>
