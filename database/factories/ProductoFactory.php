@@ -24,8 +24,8 @@ class ProductoFactory extends Factory
             'nombre' => $this->faker->words(3, true),
             'descripcion' => $this->faker->paragraph,
             'precio' => $this->faker->randomFloat(2, 10, 500),
-            'imagen' => 'default-product.png', // Asegúrate de tener una imagen por defecto
-            'destacado' => $this->faker->boolean(30), // 30% de probabilidad de ser destacado
+            'imagen' => 'images/bladev8.jpg', 
+            'destacado' => $this->faker->boolean(50),
             'stock' => $this->faker->numberBetween(0, 100),
         ];
     }

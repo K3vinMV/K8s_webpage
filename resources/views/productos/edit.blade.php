@@ -17,6 +17,24 @@
             </div>
 
             <div class="mb-3">
+                <label for="categorias" class="form-label">Seleccionar Categorías</label>
+                <div>
+                    @foreach($categorias as $categoria)
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="categoria{{ $categoria->id }}" name="categorias[]" value="{{ $categoria->id }}" 
+                                {{ $producto->categorias->contains($categoria->id) ? 'checked' : '' }}>
+                            <label class="form-check-label" for="categoria{{ $categoria->id }}">
+                                {{ $categoria->nombre }}
+                            </label>
+                        </div>
+                    @endforeach
+                </div>
+                @error('categorias')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="mb-3">
                 <label for="descripcion" class="form-label">Descripción</label>
                 <textarea class="form-control @error('descripcion') is-invalid @enderror" id="descripcion" name="descripcion" rows="3" required>{{ old('descripcion', $producto->descripcion) }}</textarea>
                 @error('descripcion')

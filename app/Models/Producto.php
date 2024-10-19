@@ -22,4 +22,9 @@ class Producto extends Model
         'destacado',
         'stock',
     ];
+
+    public function categorias()
+    {
+        return $this->belongsToMany(Categoria::class, 'categoria_producto');
+    }
 }

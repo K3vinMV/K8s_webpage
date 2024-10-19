@@ -16,6 +16,25 @@
                 @enderror
             </div>
 
+            <!-- Categorías -->
+            <div class="mb-3">
+                <label for="categorias" class="form-label">Seleccionar Categorías</label>
+                <div>
+                    @foreach($categorias as $categoria)
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="categoria{{ $categoria->id }}" name="categorias[]" value="{{ $categoria->id }}" 
+                                {{ in_array($categoria->id, old('categorias', [])) ? 'checked' : '' }}>
+                            <label class="form-check-label" for="categoria{{ $categoria->id }}">
+                                {{ $categoria->nombre }}
+                            </label>
+                        </div>
+                    @endforeach
+                </div>
+                @error('categorias')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+            </div>
+
             <!-- Descripción -->
             <div class="mb-3">
                 <label for="descripcion" class="form-label">Descripción</label>

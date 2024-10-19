@@ -21,7 +21,10 @@ class DatabaseSeeder extends Seeder
         ]);
         
         //Llama a productoseeder para insertar productos
-        $this->call(ProductoSeeder::class);
+        $this->call([
+            CategoriaSeeder::class,
+            ProductoSeeder::class
+        ]);
     }
     
 }

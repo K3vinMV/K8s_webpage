@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,7 @@ class ProductoController extends Controller
     public function index()
     {
         //
-        $productos = Producto::all();
+        $productos = Producto::with('categorias')->get();
         return view('productos.index', compact('productos'));
     }
 
@@ -23,7 +24,8 @@ class ProductoController extends Controller
     public function create()
     {
         //
-        return view('productos.create');
+        $categorias = Categoria::all();
+        return view('productos.create', compact('categorias'));
     }
 
     /**
@@ -39,6 +41,7 @@ class ProductoController extends Controller
             'imagen' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'destacado' => 'required|boolean',
             'stock' => 'required|integer|min:1',
+            'categorias' => 'required|array',
         ]);
     
         $producto = new Producto();
@@ -55,6 +58,8 @@ class ProductoController extends Controller
 
         $producto->save();
 
+        $producto->categorias()->attach($request->categorias);
+
         return redirect()->route('productos.index')->with('success', 'Producto creado correctamente.');
     }
 
@@ -64,6 +69,7 @@ class ProductoController extends Controller
     public function show(Producto $producto)
     {
         //
+        $producto->load('categorias');
         return view('productos.show', compact('producto'));
     }
 
@@ -73,7 +79,8 @@ class ProductoController extends Controller
     public function edit(Producto $producto)
     {
         //
-        return view('productos.edit', compact('producto'));
+        $categorias = Categoria::all();
+        return view('productos.edit', compact('producto', 'categorias'));
     }
 
     /**
@@ -89,6 +96,7 @@ class ProductoController extends Controller
             'imagen' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'destacado' => 'required|boolean',
             'stock' => 'required|integer|min:1',
+            'categorias' => 'required|array',
         ]);
 
         $producto->nombre = $request->nombre;
@@ -106,6 +114,7 @@ class ProductoController extends Controller
         $producto->stock = $request->stock;
         $producto->save();
 
+        $producto->categorias()->sync($request->categorias);
         return redirect()->route('productos.index')->with('success', 'Producto actualizado correctamente.');
     }
 
