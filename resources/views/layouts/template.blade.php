@@ -126,7 +126,7 @@
                                     <li><a href="#">Accesorios</a></li>
                                 </ul>
                             </li>
-                            <li><a href="./blog.html">Blog</a></li>
+                            <li><a href="{{ route('blog.index') }}">Blog</a></li>
                         </ul>
                     </nav>
                 </div>
