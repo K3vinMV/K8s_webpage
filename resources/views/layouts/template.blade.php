@@ -126,7 +126,11 @@
                                     <li><a href="#">Accesorios</a></li>
                                 </ul>
                             </li>
-                            <li><a href="{{ route('blog.index') }}">Blog</a></li>
+                            <li><a href="{{ route('blog.index') }}">Blog</a>
+                                <ul class="dropdown">
+                                    <li><a href="{{ route('blog.create') }}">Crear</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </nav>
                 </div>
