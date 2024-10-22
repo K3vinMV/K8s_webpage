@@ -15,7 +15,7 @@ class BlogFactory extends Factory
         return [
             'titulo' => $this->faker->sentence(),
             'contenido' => $this->faker->paragraph(),
-            'imagen' => $this->faker->imageUrl(640, 480, 'abstract'), // Puedes cambiarlo por una imagen real si lo deseas
+            'imagen' => 'imagenes/default_blog.jpg', // Puedes cambiarlo por una imagen real si lo deseas
             'user_id' => User::factory(), // Asocia a un usuario existente
         ];
     }

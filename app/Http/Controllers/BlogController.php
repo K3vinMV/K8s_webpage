@@ -37,10 +37,10 @@ class BlogController extends Controller
         $request->validate([
             'titulo' => 'required|string|max:255',
             'contenido' => 'required',
-            'imagen' => 'nullable|image|mimes:jpeg,png,jpg|max:2048', // Validación de imagen opcional
+            'imagen' => 'required|image|mimes:jpeg,png,jpg|max:2048', 
         ]);
 
-        $imagenPath = $request->file('imagen') ? $request->file('imagen')->store('blogs') : null;
+        $imagenPath = $request->file('imagen')->store('blogs', 'public');
 
         Blog::create([
             'titulo' => $request->titulo,

@@ -24,8 +24,8 @@
         </div>
 
         <div class="mb-3">
-            <label for="imagen" class="form-label">Imagen (opcional)</label>
-            <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*">
+            <label for="imagen" class="form-label">Imagen</label>
+            <input type="file" class="form-control" id="imagen" name="imagen" accept="image/* " required>
             @error('imagen')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror

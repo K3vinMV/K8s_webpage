@@ -24,7 +24,7 @@ class ProductoFactory extends Factory
             'nombre' => $this->faker->words(3, true),
             'descripcion' => $this->faker->paragraph,
             'precio' => $this->faker->randomFloat(2, 10, 500),
-            'imagen' => 'images/bladev8.jpg', 
+            'imagen' => 'imagenes/bladev8.jpg', 
             'destacado' => $this->faker->boolean(50),
             'stock' => $this->faker->numberBetween(0, 100),
         ];
