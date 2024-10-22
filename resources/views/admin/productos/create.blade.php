@@ -2,27 +2,28 @@
 
 @section('content')
     <div class="container">
-        <h1>Editar Producto</h1>
+        <h1>Agregar Producto</h1>
 
-        <form action="{{ route('productos.update', $producto->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.productos.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            @method('PUT')
-
+            
+            <!-- Nombre -->
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre del Producto</label>
-                <input type="text" class="form-control @error('nombre') is-invalid @enderror" id="nombre" name="nombre" value="{{ old('nombre', $producto->nombre) }}" required>
+                <input type="text" class="form-control" id="nombre" name="nombre" value="{{ old('nombre') }}" required>
                 @error('nombre')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                    <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
 
+            <!-- Categorías -->
             <div class="mb-3">
                 <label for="categorias" class="form-label">Seleccionar Categorías</label>
                 <div>
                     @foreach($categorias as $categoria)
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="categoria{{ $categoria->id }}" name="categorias[]" value="{{ $categoria->id }}" 
-                                {{ $producto->categorias->contains($categoria->id) ? 'checked' : '' }}>
+                                {{ in_array($categoria->id, old('categorias', [])) ? 'checked' : '' }}>
                             <label class="form-check-label" for="categoria{{ $categoria->id }}">
                                 {{ $categoria->nombre }}
                             </label>
@@ -34,51 +35,55 @@
                 @enderror
             </div>
 
+            <!-- Descripción -->
             <div class="mb-3">
                 <label for="descripcion" class="form-label">Descripción</label>
-                <textarea class="form-control @error('descripcion') is-invalid @enderror" id="descripcion" name="descripcion" rows="3" required>{{ old('descripcion', $producto->descripcion) }}</textarea>
+                <textarea class="form-control" id="descripcion" name="descripcion" rows="3" required>{{ old('descripcion') }}</textarea>
                 @error('descripcion')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                    <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
 
+            <!-- Precio -->
             <div class="mb-3">
                 <label for="precio" class="form-label">Precio</label>
-                <input type="number" class="form-control @error('precio') is-invalid @enderror" id="precio" name="precio" step="0.01" value="{{ old('precio', $producto->precio) }}" required>
+                <input type="number" class="form-control" id="precio" name="precio" step="0.01" value="{{ old('precio') }}" required>
                 @error('precio')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                    <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
 
+            <!-- Imagen -->
             <div class="mb-3">
                 <label for="imagen" class="form-label">Imagen del Producto</label>
-                <input type="file" class="form-control @error('imagen') is-invalid @enderror" id="imagen" name="imagen">
-                <img src="{{ asset('storage/' . $producto->imagen) }}" alt="Imagen del Producto" class="img-fluid mt-3">
+                <input type="file" class="form-control" id="imagen" name="imagen" required>
                 @error('imagen')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                    <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
 
+            <!-- Destacado -->
             <div class="mb-3">
                 <label for="destacado" class="form-label">¿Producto Destacado?</label>
-                <select class="form-select @error('destacado') is-invalid @enderror" id="destacado" name="destacado" required>
-                    <option value="0" {{ !$producto->destacado ? 'selected' : '' }}>No</option>
-                    <option value="1" {{ $producto->destacado ? 'selected' : '' }}>Sí</option>
+                <select class="form-select" id="destacado" name="destacado" required>
+                    <option value="0" {{ old('destacado') == '0' ? 'selected' : '' }}>No</option>
+                    <option value="1" {{ old('destacado') == '1' ? 'selected' : '' }}>Sí</option>
                 </select>
                 @error('destacado')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                    <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
 
+            <!-- Stock -->
             <div class="mb-3">
                 <label for="stock" class="form-label">Cantidad en Stock</label>
-                <input type="number" class="form-control @error('stock') is-invalid @enderror" id="stock" name="stock" value="{{ old('stock', $producto->stock) }}" required>
+                <input type="number" class="form-control" id="stock" name="stock" value="{{ old('stock') }}" required>
                 @error('stock')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                    <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
 
-            <button type="submit" class="btn btn-primary">Actualizar Producto</button>
+            <button type="submit" class="btn btn-success">Guardar Producto</button>
         </form>
     </div>
 @endsection

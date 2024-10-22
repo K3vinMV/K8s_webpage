@@ -23,6 +23,6 @@
             </div>
         </div>
 
-        <a href="{{ route('productos.index') }}" class="btn btn-secondary mt-3">Regresar</a>
+        <a href="{{ route('admin.productos.index') }}" class="btn btn-secondary mt-3">Regresar</a>
     </div>
 @endsection

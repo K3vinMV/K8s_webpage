@@ -71,7 +71,7 @@
                             </div>
                             <div class="product__item__text">
                                 <h6>{{ $producto->nombre }}</h6>
-                                <a href="{{ route('productos.show', $producto->id) }}" class="add-cart">+ Ver Detalles</a>
+                                <a href="#" class="add-cart">+ Ver Detalles</a>
                                 <div class="rating">
                                     <i class="fa fa-star-o"></i>
                                     <i class="fa fa-star-o"></i>
@@ -96,8 +96,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <span>Latest News</span>
-                        <h2>Fashion New Trends</h2>
+                        <h2>Blog</h2>
+                        <span>Enterate de las novedades de la comunidad del Tennis y Pádel!</span>
                     </div>
                 </div>
             </div>

@@ -4,16 +4,17 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ClienteProductoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::resource('productos', ProductoController::class);
-
 Route::resource('blog', BlogController::class);
 
-// Admin 
-//Route::resource('admin/productos', ProductoController::class)->middleware('auth'); 
+//Admin 
+Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
+    Route::resource('productos', ProductoController::class);
+});
 
 // Cliente
 //Route::get('/productos', [ClienteProductoController::class, 'index'])->name('productos.clientes');

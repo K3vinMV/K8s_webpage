@@ -14,8 +14,8 @@ class BlogFactory extends Factory
     {
         return [
             'titulo' => $this->faker->sentence(),
-            'contenido' => $this->faker->paragraph(),
-            'imagen' => 'imagenes/default_blog.jpg', // Puedes cambiarlo por una imagen real si lo deseas
+            'contenido' => $this->faker->paragraphs(rand(3, 6), true), // Generar entre 3 y 6 párrafos
+            'imagen' => 'imagenes/default_blog.jpg', 
             'user_id' => User::factory(), // Asocia a un usuario existente
         ];
     }

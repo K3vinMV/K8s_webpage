@@ -15,7 +15,7 @@ class ProductoController extends Controller
     {
         //
         $productos = Producto::with('categorias')->get();
-        return view('productos.index', compact('productos'));
+        return view('admin.productos.index', compact('productos'));
     }
 
     /**
@@ -25,7 +25,7 @@ class ProductoController extends Controller
     {
         //
         $categorias = Categoria::all();
-        return view('productos.create', compact('categorias'));
+        return view('admin.productos.create', compact('categorias'));
     }
 
     /**
@@ -60,7 +60,7 @@ class ProductoController extends Controller
 
         $producto->categorias()->attach($request->categorias);
 
-        return redirect()->route('productos.index')->with('success', 'Producto creado correctamente.');
+        return redirect()->route('admin.productos.index')->with('success', 'Producto creado correctamente.');
     }
 
     /**
@@ -70,7 +70,7 @@ class ProductoController extends Controller
     {
         //
         $producto->load('categorias');
-        return view('productos.show', compact('producto'));
+        return view('admin.productos.show', compact('producto'));
     }
 
     /**
@@ -80,7 +80,7 @@ class ProductoController extends Controller
     {
         //
         $categorias = Categoria::all();
-        return view('productos.edit', compact('producto', 'categorias'));
+        return view('admin.productos.edit', compact('producto', 'categorias'));
     }
 
     /**
@@ -115,7 +115,7 @@ class ProductoController extends Controller
         $producto->save();
 
         $producto->categorias()->sync($request->categorias);
-        return redirect()->route('productos.index')->with('success', 'Producto actualizado correctamente.');
+        return redirect()->route('admin.productos.index')->with('success', 'Producto actualizado correctamente.');
     }
 
     /**
@@ -125,6 +125,6 @@ class ProductoController extends Controller
     {
         //
         $producto->delete();
-        return redirect()->route('productos.index')->with('success', 'Producto eliminado correctamente.');
+        return redirect()->route('admin.productos.index')->with('success', 'Producto eliminado correctamente.');
     }
 }

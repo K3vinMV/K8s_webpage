@@ -26,13 +26,12 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-12">
                     <div class="blog__details__pic">
-                        <img src="{{ asset($blog->imagen) }}" alt="Imagen del blog"> <!-- Cargar imagen del blog -->
+                        <img src="{{ asset('storage/' . $blog->imagen) }}" alt="Imagen del blog"> <!-- Cargar imagen del blog -->
                     </div>
                 </div>
                 <div class="col-lg-8">
                     <div class="blog__details__content">
                         <div class="blog__details__share">
-                            <span>share</span>
                             <ul>
                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
@@ -41,7 +40,7 @@
                             </ul>
                         </div>
                         <div class="blog__details__text">
-                            <p>{{ $blog->contenido }}</p> <!-- Contenido del blog -->
+                            <p>{!! nl2br(e($blog->contenido)) !!}</p>
                         </div>
 
                         <!-- Opciones de edición y eliminación solo para el autor -->

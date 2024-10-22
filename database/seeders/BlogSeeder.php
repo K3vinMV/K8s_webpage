@@ -17,13 +17,6 @@ class BlogSeeder extends Seeder
         //
         $userIds = User::pluck('id')->toArray();
 
-        foreach (range(1, 20) as $index) {
-            Blog::create([
-                'titulo' => 'Título del Blog ' . $index,
-                'contenido' => 'Contenido del Blog ' . $index,
-                'imagen' => 'imagenes/default_blog.jpg', 
-                'user_id' => $userIds[array_rand($userIds)], // Asigna un ID de usuario aleatorio existente
-            ]);
-        }
+        Blog::factory()->count(20)->create();
     }
 }
