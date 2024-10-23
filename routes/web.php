@@ -17,7 +17,8 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
 });
 
 // Cliente
-//Route::get('/productos', [ClienteProductoController::class, 'index'])->name('productos.clientes');
+Route::get('/productos', [ClienteProductoController::class, 'index'])->name('cliente.productos.index');
+Route::get('/productos/{producto}', [ClienteProductoController::class, 'show'])->name('cliente.productos.show');
 
 // Rutas temporales
 

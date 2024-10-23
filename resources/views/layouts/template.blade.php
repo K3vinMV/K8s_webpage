@@ -119,7 +119,7 @@
                     <nav class="header__menu mobile-menu">
                         <ul>
                             <li class="active"><a href="{{ route('home') }}">Inicio</a></li>
-                            <li><a href="#">Productos</a>
+                            <li><a href="{{ route('cliente.productos.index') }}">Productos</a>
                                 <ul class="dropdown">
                                     <li><a href="#">Tennis</a></li>
                                     <li><a href="#">Pádel</a></li>

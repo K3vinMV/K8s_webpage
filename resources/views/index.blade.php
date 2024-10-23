@@ -72,13 +72,6 @@
                             <div class="product__item__text">
                                 <h6>{{ $producto->nombre }}</h6>
                                 <a href="#" class="add-cart">+ Ver Detalles</a>
-                                <div class="rating">
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
                                 <h5>${{ number_format($producto->precio, 2) }}</h5>
                             </div>
                         </div>
