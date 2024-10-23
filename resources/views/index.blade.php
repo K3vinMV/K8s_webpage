@@ -25,7 +25,7 @@
                         </div>
                         <div class="banner__item__text mt-2 text-start">
                             <h2>Tennis</h2>
-                            <a href="#" class="btn">Comprar Ahora</a>
+                            <a href="{{ route('cliente.productos.index', ['categoria' => 1]) }}" class="btn">Comprar Ahora</a>
                         </div>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                         </div>
                         <div class="banner__item__text mt-2 text-end">
                             <h2>Accesorios</h2>
-                            <a href="#" class="btn">Comprar Ahora</a>
+                            <a href="{{ route('cliente.productos.index', ['categoria' => 2]) }}" class="btn">Comprar Ahora</a>
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                         </div>
                         <div class="banner__item__text mt-2 text-start">
                             <h2>Pádel</h2>
-                            <a href="#" class="btn">Comprar Ahora</a>
+                            <a href="{{ route('cliente.productos.index', ['categoria' => 3]) }}" class="btn">Comprar Ahora</a>
                         </div>
                     </div>
                 </div>

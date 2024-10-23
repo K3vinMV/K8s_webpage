@@ -121,9 +121,9 @@
                             <li class="active"><a href="{{ route('home') }}">Inicio</a></li>
                             <li><a href="{{ route('cliente.productos.index') }}">Productos</a>
                                 <ul class="dropdown">
-                                    <li><a href="#">Tennis</a></li>
-                                    <li><a href="#">Pádel</a></li>
-                                    <li><a href="#">Accesorios</a></li>
+                                    <li><a href="{{ route('cliente.productos.index', ['categoria' => 1]) }}">Tennis</a></li>
+                                    <li><a href="{{ route('cliente.productos.index', ['categoria' => 2]) }}">Accesorios</a></li>
+                                    <li><a href="{{ route('cliente.productos.index', ['categoria' => 3]) }}">Pádel</a></li>
                                 </ul>
                             </li>
                             <li><a href="{{ route('blog.index') }}">Blog</a>

@@ -2,7 +2,12 @@
 
 @section('content')
 <!-- Shop Section Begin -->
-<h2 class="text-center">Productos</h2>
+<h2 class="text-center">
+    Productos 
+    @if($categoriaSeleccionada)
+        - {{ $categoriaSeleccionada->nombre }}
+    @endif
+</h2>
 <section class="shop spad">
     <div class="container">
         <div class="row">
