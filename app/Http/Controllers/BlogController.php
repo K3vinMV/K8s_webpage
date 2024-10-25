@@ -67,6 +67,10 @@ class BlogController extends Controller
     public function edit(Blog $blog)
     {
         //
+        if (Auth::id() !== $blog->user_id) {
+            abort(403); // Prohibido
+        }
+    
         return view('blog.edit', compact('blog'));
     }
 
@@ -110,6 +114,10 @@ class BlogController extends Controller
     public function destroy(Blog $blog)
     {
         //
+        if (Auth::id() !== $blog->user_id) {
+            abort(403); // Prohibido, devuelve un error 403 si no es el dueño
+        }
+
         if ($blog->imagen) {
             Storage::delete($blog->imagen);
         }
