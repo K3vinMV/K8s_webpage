@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class BlogController extends Controller
 {
+    use AuthorizesRequests;
     /**
      * Display a listing of the resource.
      */
@@ -40,6 +42,8 @@ class BlogController extends Controller
     public function store(Request $request)
     {
         //
+        $this->authorize('create', Blog::class);
+
         $request->validate([
             'titulo' => 'required|string|max:255',
             'contenido' => 'required',
@@ -73,6 +77,8 @@ class BlogController extends Controller
     public function edit(Blog $blog)
     {
         //
+        $this->authorize('update', $blog);
+
         if (Auth::id() !== $blog->user_id) {
             abort(403); // Prohibido
         }
@@ -86,6 +92,8 @@ class BlogController extends Controller
     public function update(Request $request, Blog $blog)
     {
         //
+        $this->authorize('update', $blog);
+
         $request->validate([
             'titulo' => 'required|string|max:255',
             'contenido' => 'required',
@@ -120,6 +128,8 @@ class BlogController extends Controller
     public function destroy(Blog $blog)
     {
         //
+        $this->authorize('delete', $blog);
+
         if (Auth::id() !== $blog->user_id) {
             abort(403); // Prohibido, devuelve un error 403 si no es el dueño
         }
@@ -140,6 +150,7 @@ class BlogController extends Controller
     {
         //
         $blog = Blog::withTrashed()->findOrFail($id);
+        $this->authorize('restore', $blog);
         $blog->restore();
 
         return redirect()->route('blog.index')->with('success', 'Blog restaurado exitosamente.');
