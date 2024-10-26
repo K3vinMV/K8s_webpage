@@ -11,6 +11,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::resource('blog', BlogController::class);
 
+Route::patch('/blog/{id}/restore', [BlogController::class, 'restore'])->name('blog.restore');
+
 //Admin 
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::resource('productos', ProductoController::class);
@@ -18,25 +20,8 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
 
 // Cliente
 Route::get('/productos', [ClienteProductoController::class, 'index'])->name('cliente.productos.index');
+
 Route::get('/productos/{producto}', [ClienteProductoController::class, 'show'])->name('cliente.productos.show');
-
-// Rutas temporales
-
-Route::get('/productos/tennis', function () {
-    return 'Productos de Tennis';
-})->name('productos.tennis');
-
-Route::get('/productos/padel', function () {
-    return 'Productos de Pádel';
-})->name('productos.padel');
-
-Route::get('/productos/accesorios', function () {
-    return 'Accesorios';
-})->name('productos.accesorios');
-
-Route::get('/contacto', function () {
-    return 'Página de contacto';
-})->name('contacto');
 
 Route::middleware([
     'auth:sanctum',

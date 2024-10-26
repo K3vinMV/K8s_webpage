@@ -15,7 +15,13 @@ class BlogController extends Controller
     public function index()
     {
         //
-        $blogs = Blog::with('user')->latest()->get();
+        if (Auth::check() && Auth::user()->role == 'admin') {
+            // Si el usuario es un administrador
+            $blogs = Blog::with('user')->withTrashed()->latest()->get();
+        } else {
+            //No muestra soft deletes
+            $blogs = Blog::with('user')->latest()->get();
+        }
         return view('blog.index', compact('blogs'));
     }
 
@@ -125,5 +131,17 @@ class BlogController extends Controller
         $blog->delete();
 
         return redirect()->route('blog.index')->with('success', 'Blog eliminado exitosamente.');
+    }
+
+    /**
+     * Restore the specified resource from storage.
+     */
+    public function restore($id)
+    {
+        //
+        $blog = Blog::withTrashed()->findOrFail($id);
+        $blog->restore();
+
+        return redirect()->route('blog.index')->with('success', 'Blog restaurado exitosamente.');
     }
 }
