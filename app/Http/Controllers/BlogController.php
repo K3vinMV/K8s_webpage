@@ -45,8 +45,8 @@ class BlogController extends Controller
         $this->authorize('create', Blog::class);
 
         $request->validate([
-            'titulo' => 'required|string|max:255',
-            'contenido' => 'required',
+            'titulo' => 'required|string|min:5|max:255',
+            'contenido' => 'required|string|min:10|max:1000',
             'imagen' => 'required|image|mimes:jpeg,png,jpg|max:2048', 
         ]);
 
@@ -95,8 +95,8 @@ class BlogController extends Controller
         $this->authorize('update', $blog);
 
         $request->validate([
-            'titulo' => 'required|string|max:255',
-            'contenido' => 'required',
+            'titulo' => 'required|string|min:5|max:255',
+            'contenido' => 'required|string|min:10|max:1000',
             'imagen' => 'nullable|image|mimes:jpeg,png,jpg|max:2048', // Validación de imagen opcional
         ]);
 

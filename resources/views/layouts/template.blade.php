@@ -171,9 +171,9 @@
                     <div class="footer__widget">
                         <h6>Comprar</h6>
                         <ul>
-                            <li><a href="#">Tennis</a></li>
-                            <li><a href="#">Pádel</a></li>
-                            <li><a href="#">Accesorios</a></li>
+                            <li><a href="{{ route('cliente.productos.index', ['categoria' => 1]) }}">Tennis</a></li>
+                            <li><a href="{{ route('cliente.productos.index', ['categoria' => 3]) }}">Pádel</a></li>
+                            <li><a href="{{ route('cliente.productos.index', ['categoria' => 2]) }}">Accesorios</a></li>
                         </ul>
                     </div>
                 </div>
