@@ -174,6 +174,7 @@
                             <li><a href="{{ route('cliente.productos.index', ['categoria' => 1]) }}">Tennis</a></li>
                             <li><a href="{{ route('cliente.productos.index', ['categoria' => 3]) }}">Pádel</a></li>
                             <li><a href="{{ route('cliente.productos.index', ['categoria' => 2]) }}">Accesorios</a></li>
+                            <li><a href="{{ route('sugerencias.create') }}">Sugerencias</a></li>
                         </ul>
                     </div>
                 </div>

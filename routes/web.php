@@ -4,6 +4,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ClienteProductoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\SugerenciaController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -41,4 +42,12 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+});
+
+// Sugerencias
+Route::middleware(['auth'])->group(function () {
+    Route::get('/sugerencias', [SugerenciaController::class, 'index'])->name('sugerencias.index'); // Lista de sugerencias
+    Route::get('/sugerencias/create', [SugerenciaController::class, 'create'])->name('sugerencias.create'); // Formulario para crear una sugerencia
+    Route::post('/sugerencias', [SugerenciaController::class, 'store'])->name('sugerencias.store'); // Guarda la sugerencia en la base de datos
+    Route::delete('/sugerencias/{id}', [SugerenciaController::class, 'destroy'])->name('sugerencias.destroy'); // Elimina una sugerencia
 });
