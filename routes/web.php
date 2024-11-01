@@ -51,3 +51,10 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/sugerencias', [SugerenciaController::class, 'store'])->name('sugerencias.store'); // Guarda la sugerencia en la base de datos
     Route::delete('/sugerencias/{id}', [SugerenciaController::class, 'destroy'])->name('sugerencias.destroy'); // Elimina una sugerencia
 });
+
+//Verificación de correo
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/user/profile', function () {
+        return view('profile.show');
+    })->name('profile.show');
+});
