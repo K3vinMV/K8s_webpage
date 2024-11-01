@@ -193,8 +193,9 @@
                         <h6>NewsLetter</h6>
                         <div class="footer__newslatter">
                             <p>Sé el primero en enterarse sobre nuestras promociones y nuevos productos!</p>
-                            <form action="#">
-                                <input type="text" placeholder="Tu email">
+                            <form action="{{ route('newsletter.subscribe') }}" method="POST">
+                                @csrf
+                                <input type="email" name="email" placeholder="Tu email" required>
                                 <button type="submit"><span class="icon_mail_alt"></span></button>
                             </form>
                         </div>

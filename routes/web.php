@@ -3,6 +3,7 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ClienteProductoController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\SugerenciaController;
 use App\Http\Middleware\AdminMiddleware;
@@ -58,3 +59,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return view('profile.show');
     })->name('profile.show');
 });
+
+// Newsletter
+Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
