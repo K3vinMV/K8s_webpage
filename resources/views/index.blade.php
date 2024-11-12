@@ -71,7 +71,7 @@
                             </div>
                             <div class="product__item__text">
                                 <h6>{{ $producto->nombre }}</h6>
-                                <a href="#" class="add-cart">+ Ver Detalles</a>
+                                <a href="{{ route('cliente.productos.show', $producto->id) }}" class="add-cart">+ Ver Detalles</a>
                                 <h5>${{ number_format($producto->precio, 2) }}</h5>
                             </div>
                         </div>

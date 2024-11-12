@@ -160,7 +160,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__logo">
-                            <a href="#"><img src="{{ asset('img/footer-logo.png') }}" alt="Footer Logo"></a>
+                            <a href="{{ route('home') }}"><img src="{{ asset('img/footer-logo.png') }}" alt="Footer Logo"></a>
                         </div>
                         <p>El cliente está en el centro de nuestro modelo de negocio único, 
                             que incluye diseño, innovación y ofrecer equipo de tenis de la más alta calidad para todos los niveles de jugadores.</p>
